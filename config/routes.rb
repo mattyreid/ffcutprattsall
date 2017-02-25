@@ -1,5 +1,4 @@
 
-
 Rails.application.routes.draw do
   root "dashboards#show"
   devise_for :admins, controllers: { sessions: 'admin/sessions' }
@@ -64,8 +63,4 @@ Rails.application.routes.draw do
     post    "interests" => "interests#create"
     delete  "interests" => "interests#destroy"
   end
-
-  authenticate :admin do
-    mount Sidekiq::Web => '/sidekiq' 
-  end
-end
+end 
