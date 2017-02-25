@@ -1,0 +1,41 @@
+<nav data-behavior="animated-navbar" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid col-md-10 col-md-offset-1">
+    <div class="navbar-header">
+      <%= link_to "Prattsule", root_path, class: "navbar-brand" %>
+    </div>
+    <ul class="nav navbar-nav filter-links">
+      <li>
+        <% if user_signed_in? %>
+        <li><a href="/home"><span "Staff pick", class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+        <% else %>
+          <li><a href="/home"><span "Staff pick", class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+        <% end %>
+      </li>
+      <li><a href="/explore"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></li>
+      <% if user_signed_in? %>
+        <li><a href="/capsule"><span class="glyphicon glyphicon-save" aria-hidden="true"></span></a></li>
+      <% else %>
+        <li><a href="/capsule"><span class="glyphicon glyphicon-save" aria-hidden="true"></span></a></li>
+      <% end %>
+    </ul>
+
+    <div class="folding-nav">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="main-searchbar">
+          <%= react_component('SearchContainer') %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="new-post-button"><%= link_to "Write a Post", new_post_path, class: "button" %></li>
+          <li id="notifications">
+            <%= react_component('NotificationsContainer', {}) %>
+          </li>
+          <%= render 'layouts/avatar_dropdown' %>
+        <% else %>
+          <li class="new-post-button"><%= link_to "Write a post", new_post_path, class: "button", data: { behavior: 'trigger-overlay' } %></li>
+          <li class="sign-in-button"><%= link_to "Sign in / Sign up", new_user_session_path, class: 'button green-border-button', data: { behavior: 'trigger-overlay' } %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</nav>
