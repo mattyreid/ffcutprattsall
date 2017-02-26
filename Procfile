@@ -1,1 +1,2 @@
-worker: bundle exec elasticsearch -q 1
+web: bundle exec puma -C config/puma.rb
+worker: bundle exec sidekiq -q 1

@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 
 Rails.application.routes.draw do
   root "dashboards#show"
@@ -63,4 +64,7 @@ Rails.application.routes.draw do
     post    "interests" => "interests#create"
     delete  "interests" => "interests#destroy"
   end
-end 
+  authenticate :admin do
+    mount Sidekiq::Web => '/sidekiq' 
+  end
+end

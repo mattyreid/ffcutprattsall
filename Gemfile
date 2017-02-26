@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 
 gem 'rails', '4.2.6'
+gem 'puma', '~> 2.15'
+gem 'pg'
 
 # Auth
 gem 'devise', '~> 3.5.3'
@@ -38,6 +40,12 @@ gem 'will_paginate', '~> 3.1'
 # Elasticsearch
 gem 'elasticsearch-model', '~> 0.1.8'
 gem 'elasticsearch-rails', '~> 0.1.8'
+
+# Background Job
+gem 'sidekiq', '~> 4.0'
+gem 'sinatra', require: false
+gem 'slim'
+# gem 'sidetiq', '~> 0.7.0'
 
 gem 'nokogiri', '~> 1.6'
 
@@ -80,7 +88,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'unicorn'
   gem 'rails_12factor', '0.0.2', group: :production
   gem 'bonsai-elasticsearch-rails'
