@@ -5,17 +5,14 @@
     </div>
     <ul class="nav navbar-nav filter-links">
       <li>
-        <% if user_signed_in? %>
-        <%= nav_link_to "home", root_path %>
+       <%= nav_link_to "Home", root_path %>
         <% else %>
-          <%= nav_link_to "glyphicon glyphicon-th-large", root_path %>
+          <%= nav_link_to "Prattsule trends", root_path %>
         <% end %>
       </li>
-      <li><a href="/explore"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></li>
+      <li><%= nav_link_to "explore", top_stories_path %></li>
       <% if user_signed_in? %>
-        <li><a href="/capsule"><span class="glyphicon glyphicon-save" aria-hidden="true"></span></a></li>
-      <% else %>
-        <li><a href="/capsule"><span class="glyphicon glyphicon-save" aria-hidden="true"></span></a></li>
+        <li><%= nav_link_to "capsule", dashboard_bookmarks_path %></li>
       <% end %>
     </ul>
 
