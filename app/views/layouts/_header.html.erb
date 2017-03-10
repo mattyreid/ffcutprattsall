@@ -6,9 +6,9 @@
     <ul class="nav navbar-nav filter-links">
       <li>
         <% if user_signed_in? %>
-        <li><a href="/home"><span "Staff pick", class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+        <li><a href="dashboards#show"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
         <% else %>
-          <li><a href="/home"><span "Staff pick", class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+          <li><a href="dashboards#show"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
         <% end %>
       </li>
       <li><a href="/explore"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></li>
