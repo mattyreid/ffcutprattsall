@@ -6,9 +6,9 @@
     <ul class="nav navbar-nav filter-links">
       <li>
         <% if user_signed_in? %>
-        <li><a href="dashboards#show"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+        <%= nav_link_to "home", root_path %>
         <% else %>
-          <li><a href="dashboards#show"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a></li>
+          <%= nav_link_to "glyphicon glyphicon-th-large", root_path %>
         <% end %>
       </li>
       <li><a href="/explore"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></li>
