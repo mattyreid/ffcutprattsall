@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   resources :tags, only: [:show]
 
-  get "/capsule" => "dashboards#bookmarks", as: :dashboard_bookmarks
-  get "/explore" => "dashboards#top_stories", as: :top_stories
+  get "me/capsule" => "dashboards#bookmarks", as: :dashboard_bookmarks
+  get "explore" => "dashboards#top_stories", as: :top_stories
   get "me/stories/drafts" => "stories#drafts", as: :stories_drafts
   get "me/stories/public" => "stories#published", as: :stories_published
   get "search" => "search#show", as: :search
