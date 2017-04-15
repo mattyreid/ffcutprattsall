@@ -1,5 +1,5 @@
 <div class="col-md-6 col-md-offset-1 dashboard-main-content">
-
+  
   <% unless @dashboard.top_stories? %>
     <% if user_signed_in? && current_page?('/') %>
       <div data-animation="fadeInUp-fadeOutDown">
@@ -8,41 +8,7 @@
     <% end %>
     <div class="posts-wrapper" data-behavior="endless-scroll" data-animation="fadeInUp-fadeOutDown">
       <%= render @dashboard.posts %>
-      <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h2>Sign up</h2>
-
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { autocomplete: 'off' }) do |f| %>
-      <%= devise_error_messages! %>
-
-      <div class="form-input-wrapper">
-        <%= f.text_field :username, autofocus: true, placeholder: "Username", onfocus: "this.value = this.value;" %>
-      </div>
-
-      <div class="form-input-wrapper">
-        <%= f.email_field :email, placeholder: "Email" %>
-      </div>
-
-      <% if f.object.password_required? %>
-        <div class="form-input-wrapper">
-          <%= f.password_field :password, autocomplete: "off", placeholder: "Password (#{@minimum_password_length} characters minimum)" %>
-        </div>
-
-        <div class="form-input-wrapper">
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Re-enter Password" %>
-        </div>
-      <% end %>
-
-      <%= f.submit "Create Account", class: "button green-inner-button" %>
-
-    <% end %>
-
-    <div class="devise-links">
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
-</div>
-
+    
     </div>
   <% else %>
     <div class="posts-wrapper" data-animation="fadeInUp-fadeOutDown">
