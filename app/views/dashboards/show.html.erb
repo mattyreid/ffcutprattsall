@@ -12,11 +12,11 @@
     </div>
   <% else %>
     <div class="posts-wrapper" data-animation="fadeInUp-fadeOutDown">
-      <%= render 'posts/top_stories', posts: @dashboard.posts %>
+      <%= render 'posts/top_posts', posts: @dashboard.posts %>
     </div>
   <% end %>
 
-  <% unless @dashboard.top_stories? %>
+  <% unless @dashboard.top_posts? %>
     <div class="center">
       <%= will_paginate @dashboard.posts %>
     </div>
